@@ -1,0 +1,30 @@
+{% extends 'layouts/layout.html' %}
+{% block content %}
+    <div class="container-fluid pb-0">
+        <h4>Show your videos to the world</h4>
+        <form method="POST" enctype="multipart/form-data" id="upload-video">
+            <div class="form-group">
+                <input type="file" name="video-file" class="form-control" id="video">
+            </div>
+            <div class="form-group">
+                <select name="privacy" id="privacy" class="form-control">
+                    <option value="Public" selected>Public</option>
+                    <option value="Private">Private</option>
+                    <option value="Unlisted">Unlisted</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Upload</button>
+            </div>
+        </form>
+        <div class="parea">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar">
+                </div>
+            </div>
+            <div class="upload-message">
+            </div>
+        </div>
+    </div>
+    <script src="{{url_for('static', filename = 'js/upload.js')}}"></script>
+{% endblock %}

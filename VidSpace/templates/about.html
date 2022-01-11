@@ -1,0 +1,57 @@
+{% extends 'layouts/layout.html' %}
+{% block content %}
+     <div class="single-channel-page" id="content-wrapper">
+         <div class="single-channel-image">
+               <img class="img-fluid" alt="" src="img/channel-banner.png">
+               <div class="channel-profile">
+                  <img class="channel-profile-img" alt="" src="{{url_for('static', filename = 'uploads/' + channel['logo'])}}">
+                  <div class="social hidden-xs">
+                     Social &nbsp;
+                     <a class="fb" href="#">Facebook</a>
+                     <a class="tw" href="#">Twitter</a>
+                     <a class="gp" href="#">Google</a>
+                  </div>
+               </div>
+         </div>
+         <div class="single-channel-nav">
+               <nav class="navbar navbar-expand-lg navbar-light">
+                  <a class="channel-brand" href="#">{{channel['name']}} <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></span></a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                     <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                           <a class="nav-link" href="{{url_for('channel', id = channel['_chid'])}}">Videos</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="#">Playlist</a>
+                        </li>
+                        <li class="nav-item active">
+                           <a class="nav-link" href="#">About<span class="sr-only">(current)</span></a>
+                        </li>
+                     </ul>
+                  </div>
+               </nav>
+         </div>
+        <div class="container-fluid">
+           <div class="video-block section-padding">
+              <div class="row">
+                 <div class="col-md-12">
+                    <div class="main-title">
+                       <h6>About</h6>
+                    </div>
+                 </div>
+                  <div class="col-md-12">
+                      <h4>{{channel['name']}}</h4>
+                      <p>{{channel['about']}}</p>
+                      <p>Category: {{channel['category']}}</p>
+                      <p>Total Subscribers: </p>
+                      <p>Total Videos Uploaded: {{no_of_videos}}</p>
+                      <p>Joined On: {{channel['create_on']}}</p>
+                  </div>
+              </div>
+           </div>
+        </div>
+     </div>
+{% endblock content %}

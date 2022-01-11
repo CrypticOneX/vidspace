@@ -1,0 +1,23 @@
+{% extends 'layouts/layout.html' %}
+{% block content %}
+    <div class="container-fluid pb-0">
+        <form method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <input type="text" name="title" id="title" class="form-control" placeholder="Enter Video Title">
+            </div>
+            <div class="form-group">
+                <textarea id="description" class="form-control" name="description" placeholder="Say something about this video"></textarea>
+            </div>
+            <div class="form-group">
+                <textarea id="tags" class="form-control" name="tags" placeholder="Optimize the visibility of your videos by entering tags"></textarea>
+            </div>
+            <div class="form-group">
+                <input type="file" name="thumbnail" class="thumbnail thumbnail-upload">
+                <p style="font-size: 12px; margin: 8px 0;"><sup>*</sup>Thubnail size should be lessthan 2MB</p>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Publish</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

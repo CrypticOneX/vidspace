@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Ashutosh Singh">
+         {% if title %}
+            <title>{{title}} -VidSpace</title>
+        {% else %}
+            <title>VidSpace</title>
+        {% endif %}
+        <link href="{{url_for('static', filename = 'vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <div class="user-box">
+                <h1>
+                    VidSpace
+                </h1>
+                {% block content %}
+                {% endblock content%}
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    </body>
+</html>

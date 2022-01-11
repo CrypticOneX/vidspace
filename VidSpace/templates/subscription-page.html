@@ -1,0 +1,35 @@
+{% extends 'layouts/layout.html' %}
+{% block content %}
+     <div class="container-fluid pb-0">
+        {% if error %}
+            <div class="alert">
+                <div class="alert alert-danger">
+                    {{error}}
+                </div>
+            </div>
+         {% endif %}
+         <div class="row">
+            <div class="col-md-12">
+                <div class="main-title">
+                     <h6>Subscription</h6>
+                </div>
+            </div>
+             {% if channels %}
+                {% for channel in channels %}
+                   <div class="col-xl-3 col-sm-6 mb-3">
+                        <div class="channels-card">
+                           <div class="channels-card-image">
+                              <a href="#"><img class="img-fluid" src="{{url_for('static', filename = 'uploads/' + channel['logo'])}}" alt=""></a>
+                           </div>
+                           <div class="channels-card-body">
+                              <div class="channels-title">
+                                 <a href="#">{{channel['name']}}</a>
+                              </div>
+                           </div>
+                        </div>
+                   </div>
+                {% endfor%}
+             {% endif %}
+         </div>
+     </div>
+{% endblock %}

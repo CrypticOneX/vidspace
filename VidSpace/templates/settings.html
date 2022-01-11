@@ -1,0 +1,60 @@
+{% extends 'layouts/layout.html' %}
+{% block content %}
+    <div class="container-fluid pb-0">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="main-title">
+                     <h6>Account Settings</h6>
+                </div>
+            </div>
+        </div>
+         <div class="col-md-12">
+            <p>Channel Info</p>
+        </div>
+        {% if msg %}
+             <div class="col-md-12">
+                 <div class="alert alert-success">{{msg}}</div>
+            </div>
+        {% endif %}
+         <div class="col-md-12">
+             <form method="POST" enctype="multipart/form-data">
+                 <div class="form-group">
+                     <label for="name">Channel Name</label>
+                     <input type="text" name="name" class="form-control" id="name" value="{{channel['name']}}">
+                 </div>
+                  <div class="form-group">
+                      <label for="about">Write Something about your channel</label>
+                      <textarea name="about" id="about" class="form-control">{{channel['about']}}</textarea>
+                  </div>
+                 <div class="form-group">
+                     <label for="category">Category</label>
+                     <select name="category" id="category" class="form-control">
+                         <option value="People and blog">People and blog</option>
+                         <option value="Music">Music</option>
+                         <option value="Comedy">Comedy</option>
+                         <option value="Movie">Movie</option>
+                         <option value="Gaming">Gaming</option>
+                         <option value="Fashion">Fashion</option>
+                         <option value="Education">Education</option>
+                     </select>
+                  </div>
+                 <div class="form-group">
+                     <label>Upload Channel Logo</label><br>
+                     <input type="file" name="logo">
+                  </div>
+                 <div class="form-group">
+                     <button type="submit" class="btn btn-primary">Update</button>
+                  </div>
+             </form>
+         </div>
+         <div class="col-md-12">
+            <p>Channel ID: {{channel['_chid']}}</p>
+        </div>
+         <div class="col-md-12">
+            <p>Joined On: {{channel['create_on']}}</p>
+        </div>
+        <div class="col-md-12">
+            <p>Category: {{channel['category']}}</p>
+        </div>
+    </div>
+{% endblock %}

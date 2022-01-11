@@ -1,0 +1,38 @@
+{% extends 'layouts/layout.html' %}
+{% block content %}
+     <div class="container-fluid pb-0">
+     <div class="video-block section-padding">
+          <div class="row">
+             <div class="col-md-12">
+                <div class="main-title">
+                   <h6>Uploaded Videos</h6>
+                </div>
+             </div>
+               {% for video in videos %}
+                    <div class="col-xl-3 col-sm-6 mb-3">
+                        <div class="video-card">
+                           <div class="video-card-image">
+                              <a class="play-icon" href="{{url_for('watch', v = video['_video_id'])}}"><i class="fas fa-play-circle"></i></a>
+                              <a href="{{url_for('watch', v = video['_video_id'])}}"><img class="img-fluid" src="{{url_for('static', filename = 'uploads/' + video['thumb_uri'])}}" alt=""></a>
+                              <div class="time">{{video['duration']}}</div>
+                           </div>
+                           <div class="video-card-body">
+                              <div class="video-title">
+                                 <a href="{{url_for('watch', v = video['_video_id'])}}">{{video['title']}}</a>
+                              </div>
+                              <div class="video-view">
+                                 {{video['views']}} views &nbsp;<i class="fas fa-calendar-alt"></i> {{video['upload_date']}}
+                              </div>
+                               <div class="video-likes">
+                              </div>
+                               <div class="video-dislikes">
+                              </div>
+                               <a href="{{url_for('delete_video', video_id = video['_video_id'])}}" class="delete-btn delete-btn-l" style="text-decoration: none">Delete</a>
+                           </div>
+                        </div>
+                     </div>
+               {% endfor %}
+          </div>
+        </div>
+     </div>
+{% endblock content%}

@@ -1,0 +1,25 @@
+{% extends 'layouts/_forms.html' %}
+{% block content %}
+    <h3>Sign in</h3>
+    <p>Use your VidSpace Account to Login</p>
+    {% if error %}
+        <div class="alert alert-danger">
+            <p>{{ error }}</p>
+        </div>
+    {% endif %}
+    <form method="post" action="">
+        <div class="form-group">
+            <label for="username">Email or Phone</label>
+            <input type="text" name="username" class="form-control" id="username" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" class="form-control" id="password" required>
+            <a href="#">Forgot Password?</a>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Sign in</button>
+            <a href="{{url_for('signup')}}" style="margin: 8px">Create Account</a>
+        </div>
+    </form>
+{% endblock content %}

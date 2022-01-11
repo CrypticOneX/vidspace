@@ -1,0 +1,11 @@
+[
+  "route_test.py::test_home_route",
+  "route_test.py::test_watch_route",
+  "route_test.py::test_studio_route",
+  "route_test.py::test_upload_route",
+  "route_test.py::test_subscribe_route",
+  "route_test.py::test_like",
+  "authentication_test.py::test_signin",
+  "route_test.py::test_library_route",
+  "authentication_test.py::FlaskrTestCase::test_signup_messages"
+]

@@ -1,0 +1,26 @@
+ <div class="edit-modal">
+                        <h1>Edit Video ?</h1>
+                        <form method="POST">
+                             <div class="s12">
+                                <input type="text" name="title" id="title" class="input-fields" value="{{video['title']}}">
+                            </div>
+                            <div class="s12">
+                                <textarea id="description" class="materialize-textarea" name="description">{{video['description']}}</textarea>
+                            </div>
+                            <div class="s12">
+                                <textarea id="tags" class="materialize-textarea" name="tags">{{video['tags']}}</textarea>
+                            </div>
+                            <button type="submit" class="btn">Update</button>
+                        </form>
+                        <button class="btn-cancel-edit">Cancel</button>
+                     </div>
+                </div>
+            </div>
+
+
+              <div class="delete-modal">
+                        <h1>Delete Video ?</h1>
+                        <p>Do you really want to delete this video ?</p>
+                        <a href="{{url_for('delete_video', video_id = video['_video_id'])}}" class="delete-btn-l" style="text-decoration: none">Delete</a>
+                        <button class="btn-cancel">Cancel</button>
+                    </div>

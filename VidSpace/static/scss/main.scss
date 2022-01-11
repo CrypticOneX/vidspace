@@ -1,0 +1,41 @@
+$font-color: #fff;
+
+.subscribe-btn {
+    background: red;
+    border: 1px solid red;
+    padding: .3rem .8rem;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.subscribed-btn-disabled {
+    background: gray !important;
+    border: 1px solid gray !important;
+    padding: .3rem .8rem;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.v-btn {
+    border: none;
+    background: transparent;   
+    font-size: 1.6rem;
+    cursor: pointer;  
+    color: #000;   
+}
+
+.vtn-btn-done {
+    color: rgb(22, 22, 245);
+}
+
+.parea {
+    margin: 10px 0;
+}

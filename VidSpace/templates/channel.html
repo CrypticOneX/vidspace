@@ -1,0 +1,79 @@
+{% extends 'layouts/layout.html' %}
+{% block content %}
+     <div class="single-channel-page" id="content-wrapper">
+         <div class="single-channel-image">
+               <img class="img-fluid" alt="" src="img/channel-banner.png">
+               <div class="channel-profile">
+                  <img class="channel-profile-img" alt="" src="{{url_for('static', filename = 'uploads/' + channel['logo'])}}">
+                  <div class="social hidden-xs">
+                     Social &nbsp;
+                     <a class="fb" href="#">Facebook</a>
+                     <a class="tw" href="#">Twitter</a>
+                     <a class="gp" href="#">Google</a>
+                  </div>
+               </div>
+         </div>
+         <div class="single-channel-nav">
+               <nav class="navbar navbar-expand-lg navbar-light">
+                  <a class="channel-brand" href="#">{{channel['name']}} <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></span></a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                     <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                           <a class="nav-link" href="#">Videos <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="#">Playlist</a>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="{{url_for('channel_about', id = channel['_chid'])}}">About</a>
+                        </li>
+                     </ul>
+                    <form method="POST" id="subscribe-me" class="form-inline my-2 my-lg-0">
+                        {% if subscription_status %}
+                            <button type="submit" name="subscribe" class="subscribed-btn-disabled" value="{{channel['_chid']}}" id="subscribe">Subscribed <strong>{{no_subs}}</strong></button>
+                        {% else %}
+                            <button type="submit" name="subscribe" class="subscribe-btn" value="{{channel['_chid']}}" id="subscribe">Subscribe <strong>{{no_subs}}</strong></button>
+                        {% endif %}
+                    </form>
+                  </div>
+               </nav>
+         </div>
+         <div class="container-fluid">
+               <div class="video-block section-padding">
+                  <div class="row">
+                     <div class="col-md-12">
+                        <div class="main-title">
+                           <h6>Videos</h6>
+                        </div>
+                     </div>
+                      {% for video in videos %}
+                        <div class="col-xl-3 col-sm-6 mb-3">
+                            <div class="video-card">
+                               <div class="video-card-image">
+                                  <a class="play-icon" href="{{url_for('watch', v = video['_video_id'])}}"><i class="fas fa-play-circle"></i></a>
+                                  <a href="{{url_for('watch', v = video['_video_id'])}}"><img class="img-fluid" src="{{url_for('static', filename = 'uploads/' + video['thumb_uri'])}}" alt=""></a>
+                                  <div class="time">{{video['duration']}}</div>
+                               </div>
+                               <div class="video-card-body">
+                                  <div class="video-title">
+                                     <a href="{{url_for('watch', v = video['_video_id'])}}">{{video['title']}}</a>
+                                  </div>
+                                  <div class="video-page text-success">
+                                     {{channel['category']}}  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
+                                  </div>
+                                  <div class="video-view">
+                                     {{video['views']}} views &nbsp;<i class="fas fa-calendar-alt"></i> {{video['upload_date']}}
+                                  </div>
+                               </div>
+                            </div>
+                         </div>
+                      {% endfor %}
+                  </div>
+               </div>
+         </div>
+     </div>
+    <script src="{{url_for('static', filename = 'js/users_action.js')}}"></script>
+{% endblock %}
